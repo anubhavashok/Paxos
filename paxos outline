@@ -1,0 +1,15 @@
+PREPARE PHASE/PROPOSER  
+--------------------------------------------------------------------------------------------------
+VARIABLES process n, total number of processes total
+--------------------------------------------------------------------------------------------------
+NUMBER SYSTEM (EACH NODE HAS UNIQUE NUMBER)
+first propNum=n
+subsequent propNum+=total
+--------------------------------------------------------------------------------------------------
+SEND MESSAGE TO ACCEPTORS
+send (propNum, prop) to all acceptors
+--------------------------------------------------------------------------------------------------
+await response from acceptors
+
+PREPARE PHASE/ACCEPTOR
+--------------------------------------------------------------------------------------------------
