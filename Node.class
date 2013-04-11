@@ -1,0 +1,9 @@
+public class Node
+{
+	private int id;
+	Node()
+	{
+		this.id= Init.nodeCount;
+		Init.nodeCount++;
+	}
+}
