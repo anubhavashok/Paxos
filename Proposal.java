@@ -17,7 +17,7 @@ public class Proposal
   {
     return message;
   }
-  public int getSender()
+  public int getSenderId()
   {
     return senderId;
   }
