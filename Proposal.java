@@ -4,7 +4,7 @@ public class Proposal
   private Object message;
   private int senderId;
   
-  Proposal(int propNum, Object message)
+  Proposal(int propNum, Object message, int senderId)
   {
     this.propNum=propNum;
     this.message=message;
