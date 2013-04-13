@@ -4,6 +4,7 @@ public class Init
     public static nodeCount=0;
     public static TIMEOUT=10000; 
     public static FAULTS=2;
+    public static Proposal NACK=new Proposal(-1,null,-1);
     
     public ArrayList initNodes;
     
