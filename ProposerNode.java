@@ -41,7 +41,7 @@ public class Proposer extends Node
     public void generateAcceptProposal()
     {
         Proposal highest;
-        if(promises.empty())
+        if(promises.isEmpty())
         {
             highest = new Proposal(propNum,message,getId());
         }
@@ -53,5 +53,7 @@ public class Proposer extends Node
             }
         }
         this.message = highest.getMessage();
+        Proposal send= new Proposal(propNum,message,getId());
+        sendToQuorum(send);
     }
 }
