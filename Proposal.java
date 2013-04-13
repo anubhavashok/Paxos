@@ -2,6 +2,7 @@ public class Proposal
 {
   private int propNum;
   private Object message;
+  private int senderId;
   
   Proposal(int propNum, Object message)
   {
@@ -15,5 +16,9 @@ public class Proposal
   public Object getMessage()
   {
     return message;
+  }
+  public int getSender()
+  {
+    return senderId;
   }
 }
