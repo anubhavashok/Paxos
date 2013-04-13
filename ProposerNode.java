@@ -14,6 +14,7 @@ public class Proposer extends Node
     }
     public void sendToQuorum(Proposal p)
     {
+        for(Node n : Qu)
         //get list of correct nodes
         //send proposal to all correct nodes
     }
