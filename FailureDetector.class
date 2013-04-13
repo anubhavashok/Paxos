@@ -1,0 +1,18 @@
+public class failureDetector
+{
+  public bool isAlive(Node p)
+  {
+    //ping and check for timeout
+  }
+  private ArrayList correctNodes=initNodes;
+  public  ArrayList correctNodes(ArrayList correctNodes)
+  {
+    for(Node p: correctNodes)
+    {
+      if(!isAlive(p))
+      {
+        correctNodes.remove(p);
+      }
+    }
+    return correctNodes;
+  }
