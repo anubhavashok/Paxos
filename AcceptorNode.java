@@ -33,7 +33,7 @@ public class AcceptorNode extends Node
       }
       else 
       {
-        sendProposal(NACK,p.getSenderId();
+        sendProposal(Init.NACK,p.getSenderId();
       }
     }
   }
