@@ -31,6 +31,10 @@ public class AcceptorNode extends Node
       {
         sendProposal(highestProposalReceived,p.getSenderId());
       }
+      else 
+      {
+        sendProposal(NACK,p.getSenderId();
+      }
     }
   }
 }
