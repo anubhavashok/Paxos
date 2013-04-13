@@ -1,7 +1,7 @@
-public class failureDetector
+public class FailureDetector
 {
 
-  private ArrayList correctNodes=initNodes;
+  private ArrayList correctNodes=Init.getNodesList();
 
   public bool isAlive(Node p)
   {
@@ -9,7 +9,7 @@ public class failureDetector
   }
 
 
-  public  ArrayList correctNodes(ArrayList correctNodes)
+  public  ArrayList getCorrectNodes(ArrayList correctNodes)
   {
     for(Node p: correctNodes)
     {
