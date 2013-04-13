@@ -2,7 +2,7 @@ public class AcceptorNode extends Node
 {
   private ArrayList<Proposal> receivedProposals;
   private ArrayList<Proposal> acceptedProposals;
-  private Proposal highestProposalAccepted;
+  private Proposal highestProposalReceived;
   
   
   public void receivePrepare()
@@ -10,26 +10,26 @@ public class AcceptorNode extends Node
     Proposal p = ;              // receive proposal
     receivedProposals.add(p);
   }
-  public generateHighestProposalAccepted()
+  public generateHighestProposalReceived()
   {
     Proposal currentHighest;
-    for(Proposal p: acceptedProposals)
+    for(Proposal p: receivedProposals)
     {
       if(p.getPropNum()>=currentHighest.getPropNum())
       {
         currentHighest=p;
       }
     }
-    highestProposalAccepted= currentHighest;
+    highestProposalReceived= currentHighest;
   }
   public sendPromise()
   {
-    generateHighestProposalAccepted();
+    generateHighestProposalReceived();
     for(Proposal p : receivedProposals)
     {
-      if(p.getPropNum()> highestProposalAccepted.getPropNum())
+      if(p.getPropNum()> highestProposalReceived.getPropNum())
       {
-        sendProposal(highestProposalAccepted,p.getSender());
+        sendProposal(highestProposalReceived,p.getSender());
       }
     }
   }
