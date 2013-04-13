@@ -29,7 +29,7 @@ public class AcceptorNode extends Node
     {
       if(p.getPropNum()> highestProposalReceived.getPropNum())
       {
-        sendProposal(highestProposalReceived,p.getSender());
+        sendProposal(highestProposalReceived,p.getSenderId());
       }
     }
   }
