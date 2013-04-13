@@ -3,6 +3,7 @@ public class Proposer extends Node
     private int propNum;                
     private int numberOfTimesProposed=0;
     private Object message;                                     //CHANGE OBJECT TYPE
+    private ArrayList<Proposal> promises;
     public void generateNewPropNum()
     {
         propNum=getId()+numberOfTimesProposed*Init.totalNodes;
@@ -11,6 +12,10 @@ public class Proposer extends Node
     public int getPropNum()
     {
         return propNum;
+    }
+    public Object getMessage()
+    {
+        return this.message;
     }
     public void sendToQuorum(Proposal p)
     {   ArrayList<Nodes> correctNodes = getCorrectNodes();
@@ -26,5 +31,27 @@ public class Proposer extends Node
         generateNewPropNum();
         Proposal prepareProposal = new Proposal(propNum,message,getId());
         sendToQuorum(prepareProposal);
+    }
+    public void receivePromises()
+    {
+        //get all promises
+        Proposal p;     //store received proposal in this
+        promises.add(p);
+    }
+    public void generateAcceptProposal()
+    {
+        Proposal highest;
+        if(promises.empty())
+        {
+            highest = new Proposal(propNum,message,getId());
+        }
+        for(Proposal p: promises)                   //get proposal with highest propNum
+        {
+            if(p.getPropNum()>=highest.getPropNum())
+            {
+                highest=p;
+            }
+        }
+        this.message = highest.getMessage();
     }
 }
