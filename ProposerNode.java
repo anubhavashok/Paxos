@@ -24,7 +24,7 @@ public class Proposer extends Node
     public void prepare()
     {
         generateNewPropNum();
-        Proposal prepareProposal = new Proposal(propNum,message);
+        Proposal prepareProposal = new Proposal(propNum,message,getId());
         sendToQuorum(prepareProposal);
     }
 }
