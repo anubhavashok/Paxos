@@ -37,4 +37,9 @@ public class AcceptorNode extends Node
       }
     }
   }
+  public void receiveAcceptRequest()
+  {
+    Proposal p = ;              // receive proposal
+    receivedProposals.add(p);
+  }
 }
