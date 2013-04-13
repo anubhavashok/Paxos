@@ -13,8 +13,11 @@ public class Proposer extends Node
         return propNum;
     }
     public void sendToQuorum(Proposal p)
-    {
-        for(Node n : Qu)
+    {   ArrayList<Nodes> correctNodes = getCorrectNodes();
+        for(Node n : correctNodes)
+        {
+            sendProposal(p,n.getId());
+        }
         //get list of correct nodes
         //send proposal to all correct nodes
     }
