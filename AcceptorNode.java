@@ -27,13 +27,13 @@ public class AcceptorNode extends Node
     generateHighestProposalReceived();
     for(Proposal p : receivedProposals)
     {
-      if(p.getPropNum()> highestProposalReceived.getPropNum())
+      if(p.getPropNum()>= highestProposalReceived.getPropNum())
       {
         sendProposal(highestProposalReceived,p.getSenderId());
       }
       else 
       {
-        sendProposal(Init.NACK,p.getSenderId();
+        sendProposal(Init.NACK,p.getSenderId());
       }
     }
   }
