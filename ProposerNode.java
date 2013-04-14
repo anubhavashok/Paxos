@@ -56,4 +56,16 @@ public class Proposer extends Node
         Proposal send= new Proposal(propNum,message,getId());
         sendToQuorum(send);
     }
+    public void receiveAccept()
+    {
+        //receive p
+        if(p.getPropNum()==-1)
+        {
+            //send new Proposal
+        }
+        else if(p.getPropNum()==-2)
+        {
+            //Proposal Accepted
+        }
+    }
 }
