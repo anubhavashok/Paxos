@@ -3,6 +3,7 @@ public class AcceptorNode extends Node
   private ArrayList<Proposal> receivedProposals;
   private ArrayList<Proposal> acceptedProposals;
   private Proposal highestProposalReceived;
+  private Proposal highestProposalAccepted;
   private ArrayList<Proposal> acceptRequestProposals;
   
   
@@ -54,6 +55,7 @@ public class AcceptorNode extends Node
       }
       else 
       {
+        acceptedProposals.add(p);
         sendProposal(Init.ACK, p.getSenderId());
       }
     }
