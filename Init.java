@@ -26,5 +26,13 @@ public class Init
     {
         return initNodes;
     }
+    public boolean isMajority(int n)
+    {
+        if(n>=((double)totalNodes/2 +1))
+        {
+            return true;
+        }
+        else return false;
+    }
     
 }
