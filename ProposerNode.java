@@ -58,7 +58,7 @@ public class Proposer extends Node
     }
     public void acceptRequest()
     {
-        Proposal highest= promises.get(0);
+        Proposal highest= Init.initProp;
 
         for(Proposal p: promises)                   //get proposal with highest propNum
         {
