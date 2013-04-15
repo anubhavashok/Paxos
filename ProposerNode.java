@@ -4,6 +4,7 @@ public class Proposer extends Node
     private int numberOfTimesProposed=0;
     private Object message;                                     //CHANGE OBJECT TYPE
     private ArrayList<Proposal> promises;
+    private ArrayList<Proposal> ACK;
     
     Proposer(Node n)
     {
@@ -69,13 +70,13 @@ public class Proposer extends Node
     public void receiveAccept()
     {
         //receive p
-        if(p.getPropNum()==-1)
+        if(p.getPropNum()==-1)                  //NACK
         {
             //send new Proposal
         }
-        else if(p.getPropNum()==-2)
+        else if(p.getPropNum()==-2)             //ACK
         {
-            //Proposal Accepted
+            ACK.add(p);
         }
     }
 }
