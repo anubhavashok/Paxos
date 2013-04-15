@@ -8,7 +8,7 @@ public class Node
 	Node()					// Initialize node id and update node count
 	{
 		this.id= Init.nodeCount;
-		Init.nodeCount++;
+		Init.nodeCount++;		//POSSIBLE ERROR WHEN SETTING THE PROPOSER HANDLER
 	}
 	public ArrayList<Nodes> getCorrectNodes()
 	{
