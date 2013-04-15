@@ -18,7 +18,7 @@ public class AcceptorNode extends Node
   }
   public generateHighestPrepareReceived()
   {
-    Proposal currentHighest;
+    Proposal currentHighest=Init.initProp;
     for(Proposal p: receivedPrepares)
     {
       if(p.getPropNum()>=currentHighest.getPropNum())
@@ -30,7 +30,7 @@ public class AcceptorNode extends Node
   }
   public generateHighestAcceptRequestReceived()
   {
-    Proposal currentHighest;
+    Proposal currentHighest=Init.initProp;
     for(Proposal p: receivedAcceptRequests)
     {
       if(p.getPropNum()>=currentHighest.getPropNum())
