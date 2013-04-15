@@ -51,7 +51,7 @@ public class Proposer extends Node
         promises.add(p);
 
     }
-    public void generateAcceptProposal()
+    public void acceptRequest()
     {
         Proposal highest;
         if(promises.isEmpty())
