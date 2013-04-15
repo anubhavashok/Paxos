@@ -1,10 +1,10 @@
 public class AcceptorNode extends Node
 {
-  private ArrayList<Proposal> receivedProposals;
+  private ArrayList<Proposal> receivedPrepares;
   private ArrayList<Proposal> acceptedProposals;
   private Proposal highestPrepareReceived;
   private Proposal highestAcceptRequestReceived;
-  private ArrayList<Proposal> acceptRequestProposals;
+  private ArrayList<Proposal> receivedAcceptRequests;
   
   Acceptor(Node n)
   {
@@ -14,12 +14,12 @@ public class AcceptorNode extends Node
   public void receivePrepare()
   {
     Proposal p = ;              // receive proposal
-    receivedProposals.add(p);
+    receivedPrepares.add(p);
   }
   public generateHighestPrepareReceived()
   {
     Proposal currentHighest;
-    for(Proposal p: receivedProposals)
+    for(Proposal p: receivedPrepares)
     {
       if(p.getPropNum()>=currentHighest.getPropNum())
       {
@@ -31,7 +31,7 @@ public class AcceptorNode extends Node
   public generateHighestAcceptRequestReceived()
   {
     Proposal currentHighest;
-    for(Proposal p: acceptRequestProposals)
+    for(Proposal p: receivedAcceptRequests)
     {
       if(p.getPropNum()>=currentHighest.getPropNum())
       {
@@ -43,11 +43,11 @@ public class AcceptorNode extends Node
   public sendPromise()
   {
     generateHighestPrepareReceived();
-    for(Proposal p : receivedProposals)
+    for(Proposal p : receivedPrepares)
     {
-      if(p.getPropNum()>= highestProposalReceived.getPropNum())
+      if(p.getPropNum()>= highestPrepareReceived.getPropNum())
       {
-        sendProposal(highestProposalReceived,p.getSenderId());
+        sendProposal(highestPrepareReceived,p.getSenderId());
       }
       else 
       {
@@ -58,12 +58,12 @@ public class AcceptorNode extends Node
   public void receiveAcceptRequest()
   {
     Proposal p = ;              // receive proposal
-    acceptRequestProposal.add(p);
+    receivedAcceptRequests.add(p);
   }
   public void sendAccept()
   {
     generateHighestAcceptRequestReceived();
-    for(Proposal p: acceptRequestProposal)
+    for(Proposal p: receivedAcceptRequests)
     {
       if(p.getPropNum()<highestAcceptRequestReceived.getPropNum())
       {
