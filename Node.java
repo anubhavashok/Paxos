@@ -1,7 +1,7 @@
 public class Node
 {
 	
-	private int id;				//Node ID
+	protected int id;				//Node ID
 	private FailureDetector fd = new FailureDetector();
 
 	
