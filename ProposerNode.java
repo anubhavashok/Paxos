@@ -37,6 +37,7 @@ public class Proposer extends Node
         //get all promises
         Proposal p;     //store received proposal in this
         promises.add(p);
+
     }
     public void generateAcceptProposal()
     {
