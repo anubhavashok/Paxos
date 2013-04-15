@@ -4,6 +4,14 @@ public class Proposer extends Node
     private int numberOfTimesProposed=0;
     private Object message;                                     //CHANGE OBJECT TYPE
     private ArrayList<Proposal> promises;
+    
+    Proposer(Node n)
+    {
+        this.id = n.getId();
+        propNum= 0;
+        numberOfTimesProposed=0;
+    }
+    
     public void generateNewPropNum()
     {
         propNum=getId()+numberOfTimesProposed*Init.totalNodes;
