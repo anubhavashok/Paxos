@@ -21,6 +21,10 @@ public class Proposer extends Node
     {
         return propNum;
     }
+    public ArrayList<Proposal> getPromises()
+    {
+        return promises;
+    }
     public Object getMessage()
     {
         return this.message;
