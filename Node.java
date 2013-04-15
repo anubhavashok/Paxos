@@ -5,10 +5,10 @@ public class Node
 	private FailureDetector fd = new FailureDetector();
 
 	
-	Node()					// Initialize node id and update node count
+	Node(int id)					// Initialize node id and update node count
 	{
-		this.id= Init.nodeCount;
-		Init.nodeCount++;		//POSSIBLE ERROR WHEN SETTING THE PROPOSER HANDLER
+		this.id= id;
+		//Init.nodeCount++;		//POSSIBLE ERROR WHEN SETTING THE PROPOSER HANDLER
 	}
 	public ArrayList<Nodes> getCorrectNodes()
 	{
