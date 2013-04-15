@@ -6,6 +6,7 @@ public class Init
     public static FAULTS=2;
     public static Proposal NACK=new Proposal(-1,null,-1);
     public static Proposal ACK=new Proposal(-2,null,-2);
+    public static Proposal initProp=new Proposal(-1,null,-1);
     
     public ArrayList initNodes;
     
