@@ -6,6 +6,10 @@ public class AcceptorNode extends Node
   private Proposal highestProposalAccepted;
   private ArrayList<Proposal> acceptRequestProposals;
   
+  Acceptor(Node n)
+  {
+    this.id = n.getId();
+  }
   
   public void receivePrepare()
   {
