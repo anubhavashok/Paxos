@@ -4,7 +4,7 @@ public class Proposer extends Node
     private int numberOfTimesProposed=0;
     private Object message;                                     //CHANGE OBJECT TYPE
     private ArrayList<Proposal> promises;
-    private ArrayList<Proposal> ACK;
+    private ArrayList<Proposal> ACKs;
     
     Proposer(Node n)
     {
@@ -25,6 +25,10 @@ public class Proposer extends Node
     public ArrayList<Proposal> getPromises()
     {
         return promises;
+    }
+    public ArrayList<Proposal> getACKs()
+    {
+        return ACKs;
     }
     public Object getMessage()
     {
@@ -76,7 +80,7 @@ public class Proposer extends Node
         }
         else if(p.getPropNum()==-2)             //ACK
         {
-            ACK.add(p);
+            ACKs.add(p);
         }
     }
 }
