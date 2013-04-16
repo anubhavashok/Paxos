@@ -1,15 +1,17 @@
+import java.util.ArrayList;
 public class FailureDetector
 {
 
-  private ArrayList correctNodes=Init.getNodesList();       //List of correct nodes in system
+  protected ArrayList<Node> correctNodes= Init.getNodesList();       //List of correct nodes in system
 
-  public bool isAlive(Node p)                               //Checks if a particular node is correct
+  public boolean isAlive(Node p)                               //Checks if a particular node is correct
   {
     //ping and check for timeout
+  return false;
   }
 
 
-  public  ArrayList getCorrectNodes(ArrayList correctNodes) //Get ArrayList of correct Nodes
+  public  ArrayList<Node> getCorrectNodes() //Get ArrayList of correct Nodes
   {
     for(Node p: correctNodes)
     {
@@ -20,3 +22,4 @@ public class FailureDetector
     }
     return correctNodes;
   }
+}
