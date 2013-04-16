@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 public class ProposerNodeHandler
 {
   public void run(Node n)
   {
-    Proposer p = new Proposer(n);                   //node takes on proposal role
+    ProposerNode p = new ProposerNode(n);                   //node takes on proposal role
     //--------------------------------------------------------------------//
     p.prepare();                                    //initiate prepare phase
     p.receivePromises();                            //listen for promises - need terminating conditions
