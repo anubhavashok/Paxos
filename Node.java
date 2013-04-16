@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Node
 {
 	
@@ -10,11 +11,11 @@ public class Node
 		this.id= id;
 		//Init.nodeCount++;		//POSSIBLE ERROR WHEN SETTING THE PROPOSER HANDLER
 	}
-	public ArrayList<Nodes> getCorrectNodes()
+	public ArrayList<Node> getCorrectNodes()
 	{
 		return fd.getCorrectNodes();
 	}
-	public sendProposal(Proposal p, int destId)
+	public void sendProposal(Proposal p, int destId)
 	{
 		// send p to node with id= destId
 	}
