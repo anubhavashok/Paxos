@@ -28,7 +28,7 @@ public class Init
     {
         return initNodes;
     }
-    public boolean isMajority(int n)
+    public static boolean isMajority(int n)
     {
         if(n>=((double)totalNodes/2 +1))
         {
