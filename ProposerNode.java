@@ -1,4 +1,5 @@
-public class Proposer extends Node
+import java.util.ArrayList;
+public class ProposerNode extends Node
 {
     private int propNum;                
     private int numberOfTimesProposed=0;
@@ -6,9 +7,10 @@ public class Proposer extends Node
     private ArrayList<Proposal> promises;
     private ArrayList<Proposal> ACKs;
     
-    Proposer(Node n)
+    ProposerNode(Node n)
     {
-        this.id = n.getId();
+    super(n.getId());
+        //this.id = n.getId();
         propNum= 0;
         numberOfTimesProposed=0;
     }
@@ -16,7 +18,7 @@ public class Proposer extends Node
     public void generateNewPropNum()
     {
         propNum=getId()+numberOfTimesProposed*Init.totalNodes;
-        numberOfTimesProposed++ 
+        numberOfTimesProposed++ ;
     }
     public int getPropNum()
     {
@@ -35,7 +37,7 @@ public class Proposer extends Node
         return this.message;
     }
     public void sendToQuorum(Proposal p)
-    {   ArrayList<Nodes> correctNodes = getCorrectNodes();
+    {   ArrayList<Node> correctNodes = getCorrectNodes();
         for(Node n : correctNodes)
         {
             sendProposal(p,n.getId());
@@ -52,7 +54,7 @@ public class Proposer extends Node
     public void receivePromises()
     {
         //get all promises
-        Proposal p;     //store received proposal in this
+        Proposal p=null;     //store received proposal in this
         promises.add(p);
 
     }
@@ -74,6 +76,7 @@ public class Proposer extends Node
     public void receiveAccept()
     {
         //receive p
+	Proposal p = null;			//CHANGE
         if(p.getPropNum()==-1)                  //NACK
         {
             //send new Proposal
