@@ -35,11 +35,39 @@ public class Node
 	}
 	public void sendProposal(Proposal p, int destId)
 	{
-		// send p to node with id= destId
+		Node dest=null;
+		for(Node n: this.getCorrectNodes())
+		{
+			if(n.getId()==destId)
+			{
+				dest=n;
+			}
+		}
+		SeverSocket destServer = n.getServerSocket();
+		if(dest!=null)
+		{
+			try
+			{
+				cSocket= new Socket(destServer.getInetAddress(),destServer.getLocalPort());	//TCP socket
+				os=cSocket.getOutputStream();
+				oos = new ObjectOutputStream(os);
+				oos.writeObject(p);
+			}
+			catch(Exception e)
+			{
+				System.out.println("client fault");
+			}
+			closeClient();
+		}
+		
 	}
 	public int getId()			//Id accessor
 	{
 		return id;
+	}
+	public ServerSocket getServerSocket()			//Id accessor
+	{
+		return sSocket;
 	}
 	public void startServer()
 	{
