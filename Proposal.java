@@ -9,7 +9,7 @@ public class Proposal
   {
     this.propNum=propNum;
     this.message=message;
-    this.senderID=senderId;
+    this.senderId=senderId;
     this.tag=tag;
   }
   public int getPropNum()
