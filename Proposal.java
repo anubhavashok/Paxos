@@ -5,10 +5,12 @@ public class Proposal
   private int senderId;
   private int tag;
   
-  Proposal(int propNum, Object message, int senderId)
+  Proposal(int propNum, Object message, int senderId, int tag)
   {
     this.propNum=propNum;
     this.message=message;
+    this.senderID=senderId;
+    this.tag=tag;
   }
   public int getPropNum()
   {
