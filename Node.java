@@ -73,7 +73,7 @@ public class Node
 	{
 		try
 		{
-			ss=new ServerSocket(1234);
+			ss=new ServerSocket(1234+id);
 			sSocket=ss.accept();
 			is =sSocket.getInputStream();
 			ois = new ObjectInputStream(is);
@@ -99,7 +99,7 @@ public class Node
 	{
 		try
 		{
-			cSocket= new Socket("localhost",1234);	//TCP socket
+			cSocket= new Socket("localhost",1234+id);	//TCP socket
 			os=cSocket.getOutputStream();
 			oos = new ObjectOutputStream(os);
 		}
