@@ -48,7 +48,7 @@ public class ProposerNode extends Node
     public void prepare()
     {
         generateNewPropNum();
-        Proposal prepareProposal = new Proposal(propNum,message,getId());
+        Proposal prepareProposal = new Proposal(propNum,message,getId(),Init.prepareTag);
         sendToQuorum(prepareProposal);
     }
     public void receivePromises()
@@ -70,7 +70,7 @@ public class ProposerNode extends Node
             }
         }
         this.message = highest.getMessage();
-        Proposal send= new Proposal(propNum,message,getId());
+        Proposal send= new Proposal(propNum,message,getId(),Init.acceptRequestTag);
         sendToQuorum(send);
     }
     public void receiveAccept()
