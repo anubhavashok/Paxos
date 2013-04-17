@@ -8,9 +8,11 @@ public class Node
 	protected int id;					//Node ID
 	private FailureDetector fd = new FailureDetector();	//Failure Detector
 	protected Socket cSocket;				//Client TCP socket
+	protected OutputStream os;
 	protected ObjectOutputStream oos;			//Client Output
 	protected ServerSocket ss;
 	protected Socket sSocket;
+	protected InputStream is;
 	protected ObjectInputStream ois;
 	
 
@@ -19,6 +21,8 @@ public class Node
 	{
 		this.id= id;
 		//Init.nodeCount++;		//POSSIBLE ERROR WHEN SETTING THE PROPOSER HANDLER
+		startServer();
+		startClient();
 	}
 	public ArrayList<Node> getCorrectNodes()
 	{
@@ -38,19 +42,33 @@ public class Node
 		{
 			ss=new ServerSocket(1234);
 			sSocket=ss.accept();
-			ois = new ObjectInputStream(s.getInputStream());
+			is =sSocket.getInputStream();
+			ois = new ObjectInputStream(is);
 		}
 		catch(Exception e)
 		{
 			System.out.println("server fault");
 		}
 	}
+	public void closeServer()
+	{
+		is.close();
+		sSocket.close();
+		ss.close();
+	}
+	public void closeClient()
+	{
+		oos.close();
+		os.close();
+		cSocket.close();
+	}
 	public void startClient()
 	{
 		try
 		{
 			cSocket= new Socket("localhost",1234);	//TCP socket
-			oos = new ObjectOutputStream(cSocket.getOutputStream());
+			os=cSocket.getOutputStream();
+			oos = new ObjectOutputStream(os);
 		}
 		catch(Exception e)
 		{
