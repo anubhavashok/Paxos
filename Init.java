@@ -5,6 +5,10 @@ public class Init
     public static int nodeCount=0;
     public static int TIMEOUT=10000; 
     public static int FAULTS=2;
+    public static int prepareTag=0;
+    public static int promiseTag=1;
+    public static int acceptRequestTag=2;
+    public static int acceptTag=3;
     public static Proposal NACK=new Proposal(-1,null,-1);
     public static Proposal ACK=new Proposal(-2,null,-2);
     public static Proposal initProp=new Proposal(-1,null,-1);
