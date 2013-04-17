@@ -24,6 +24,11 @@ public class Node
 		startServer();
 		startClient();
 	}
+	~Node()
+	{
+		closeServer();
+		closeClient();
+	}
 	public ArrayList<Node> getCorrectNodes()
 	{
 		return fd.getCorrectNodes();
