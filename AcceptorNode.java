@@ -44,6 +44,7 @@ public class AcceptorNode extends Node
   public void sendPromise()
   {
     generateHighestPrepareReceived();
+    highestPrepareReceived.setTag(Init.promiseTag);
     for(Proposal p : receivedPrepares)
     {
       if(p.getPropNum()>= highestPrepareReceived.getPropNum())
@@ -64,6 +65,7 @@ public class AcceptorNode extends Node
   public void sendAccept()
   {
     generateHighestAcceptRequestReceived();
+    highestAcceptRequestReceived.setTag(Init.acceptTag);
     for(Proposal p: receivedAcceptRequests)
     {
       if(p.getPropNum()<highestAcceptRequestReceived.getPropNum())
