@@ -9,9 +9,9 @@ public class Init
     public static int promiseTag=1;
     public static int acceptRequestTag=2;
     public static int acceptTag=3;
-    public static Proposal NACK=new Proposal(-1,null,-1);
-    public static Proposal ACK=new Proposal(-2,null,-2);
-    public static Proposal initProp=new Proposal(-1,null,-1);
+    public static Proposal NACK=new Proposal(-1,null,-1,-1);
+    public static Proposal ACK=new Proposal(-2,null,-2,-2);
+    public static Proposal initProp=new Proposal(-1,null,-1,-1);
     
     public static ArrayList<Node> initNodes;
     
