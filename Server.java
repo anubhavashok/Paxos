@@ -16,7 +16,7 @@ class Server
   }
   public static Proposal receiveProposal() throws IOException
   {
-    ServerSocket ss= new ServerSocket(1234+n);
+    ServerSocket ss= new ServerSocket(Init.port+n);
     //System.out.println(n);
     ss.setReuseAddress(true);
     ss.setSoTimeout(2000);
