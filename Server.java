@@ -49,5 +49,6 @@ class Server
   {
     ServerSocket ss= new ServerSocket(Init.port);
     return ss.getInetAddress();
+    ss.close();
   }
 }
