@@ -54,14 +54,13 @@ public class ProposerNode extends Node
     public void receivePromises()
     {
         //get all promises
-        Proposal p=null;     //store received proposal in this
-        promises.add(p);
+        promises=receiveProposals();	//deal with NACK case
 
     }
     public void acceptRequest()
     {
         Proposal highest= Init.initProp;
-
+	
         for(Proposal p: promises)                   //get proposal with highest propNum
         {
             if(p.getPropNum()>=highest.getPropNum())
@@ -78,15 +77,7 @@ public class ProposerNode extends Node
     }
     public void receiveAccept()
     {
-        //receive p
-	Proposal p = null;			//CHANGE
-        if(p.getPropNum()==-1)                  //NACK
-        {
-            //send new Proposal
-        }
-        else if(p.getPropNum()==-2)             //ACK
-        {
-            ACKs.add(p);
-        }
+        //receive p DEAL WITH NACK
+	ACKs=receiveProposals();
     }
 }
