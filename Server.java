@@ -45,4 +45,9 @@ class Server
     return null;
     }
   }
+  public InetAddress getInetAddress() throws IOException
+  {
+    ServerSocket ss= new ServerSocket(Init.port);
+    return ss.getInetAddress();
+  }
 }
