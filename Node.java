@@ -34,6 +34,10 @@ public class Node
 		}
 		
 	}
+	public ArrayList<Proposal> receiveProposals()
+	{
+		return s.receiveAll();
+	}
 	public int getId()			//Id accessor
 	{
 		return id;
