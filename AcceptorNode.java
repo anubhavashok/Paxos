@@ -58,8 +58,7 @@ public class AcceptorNode extends Node
   }
   public void receiveAcceptRequest()
   {
-    Proposal p = null;              // receive proposal
-    receivedAcceptRequests.add(p);
+    receivedAcceptRequests=receiveProposals();
   }
   public void sendAccept()
   {
