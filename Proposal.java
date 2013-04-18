@@ -1,4 +1,4 @@
-public class Proposal
+public class Proposal implements java.io.Serializable
 {
   private int propNum;
   private Object message;
@@ -12,6 +12,7 @@ public class Proposal
     this.senderId=senderId;
     this.tag=tag;
   }
+
   public int getPropNum()
   {
     return propNum;
