@@ -1,5 +1,13 @@
 Paxos-Attempt
 =============
 
+TODO
+=============
+Implement Leader Election
+Implement multi threading
 
-REMEMBER TO CHANGE THE WAY NODE ID IS INITIALIZED SINCE THE PROPOSER HANDLER ADDS NEW ID.
+DONE
+=============
+Implement basic paxos
+Set up TCP connectivity
+Created protocol
