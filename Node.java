@@ -7,13 +7,8 @@ public class Node
 	
 	protected int id;					//Node ID
 	private FailureDetector fd = new FailureDetector();	//Failure Detector
-	protected Socket cSocket;				//Client TCP socket
-	protected OutputStream os;
-	protected ObjectOutputStream oos;			//Client Output
-	protected ServerSocket ss;
-	protected Socket sSocket;
-	protected InputStream is;
-	protected ObjectInputStream ois;
+	protected Server s;
+	protected Client c;
 	
 
 	
@@ -21,13 +16,6 @@ public class Node
 	{
 		this.id= id;
 		//Init.nodeCount++;		//POSSIBLE ERROR WHEN SETTING THE PROPOSER HANDLER
-		startServer();
-		startClient();
-	}
-	~Node()
-	{
-		closeServer();
-		closeClient();
 	}
 	public ArrayList<Node> getCorrectNodes()
 	{
@@ -35,29 +23,14 @@ public class Node
 	}
 	public void sendProposal(Proposal p, int destId)
 	{
-		Node dest=null;
-		for(Node n: this.getCorrectNodes())
+		ArrayList<Node> nList = getCorrectNodes();
+		for(Node n : nList)
 		{
 			if(n.getId()==destId)
 			{
-				dest=n;
+				c.send(p,n.getInetAddress(),Init.port+id);	
 			}
-		}
-		SeverSocket destServer = n.getServerSocket();
-		if(dest!=null)
-		{
-			try
-			{
-				cSocket= new Socket(destServer.getInetAddress(),destServer.getLocalPort());	//TCP socket
-				os=cSocket.getOutputStream();
-				oos = new ObjectOutputStream(os);
-				oos.writeObject(p);
-			}
-			catch(Exception e)
-			{
-				System.out.println("client fault");
-			}
-			closeClient();
+			
 		}
 		
 	}
@@ -107,5 +80,9 @@ public class Node
 		{
 			System.out.println("client fault");
 		}
+	}
+	public InetAddress getInetAddress()
+	{
+		return s.getInetAddress();
 	}
 }
