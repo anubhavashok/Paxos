@@ -5,10 +5,14 @@ import java.util.*;
 class Server
 {
   public static int n=0;
-  public static Proposal receive() throws IOException
+  public static ArrayList<Proposal> receiveAll() throws IOException
   {
-    Proposal p = receiveProposal();
-    return p;
+    for(int i=0;i<Init.totalNodes;i++)
+    {
+      Proposal p = receiveProposal();
+      receivedList.add(p);
+    }
+    return receivedList;
   }
   public static Proposal receiveProposal() throws IOException
   {
