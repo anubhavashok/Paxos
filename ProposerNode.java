@@ -71,7 +71,10 @@ public class ProposerNode extends Node
         }
         this.message = highest.getMessage();
         Proposal send= new Proposal(propNum,message,getId(),Init.acceptRequestTag);
-        sendToQuorum(send);
+        for(Proposal p: promises)
+        {
+        	sendProposal(p,p.getSenderId());
+        }
     }
     public void receiveAccept()
     {
