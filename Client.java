@@ -7,7 +7,7 @@ class Client
   public static void send(Proposal p, InetAddress i, int port)
   {
       try{
-          Socket skt = new Socket(i,port);
+          Socket skt = new Socket(i,port+p.getSenderId());
           OutputStream os = skt.getOutputStream();
           ObjectOutputStream oos = new ObjectOutputStream(os);
           oos.writeObject(p);
