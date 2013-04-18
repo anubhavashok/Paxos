@@ -14,8 +14,7 @@ public class AcceptorNode extends Node
   
   public void receivePrepare()
   {
-    Proposal p = null;              // receive proposal
-    receivedPrepares.add(p);
+    receivedPrepares=receiveProposals();
   }
   public void generateHighestPrepareReceived()
   {
